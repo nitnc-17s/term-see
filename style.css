@@ -2,6 +2,9 @@
 body {
     font-family: 'Noto Serif JP', serif;
     font-size: 18px;
+}
+
+h1, .term{
     padding-left: 10vw;
     padding-right: 10vw;
 }
@@ -33,4 +36,13 @@ ol.ordered-list-type-2 {
 
 .link-target {
     background-color: #FFC;
+}
+
+header{
+    width: 100vw;
+    height: 2rem;
+    top: 0;
+    left: 0;
+    background-color: red;
+    text-align: center;
 }
