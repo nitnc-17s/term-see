@@ -42,4 +42,3 @@ function onScroll() {
 }
 onScroll();
 window.onscroll = onScroll;
-console.log(termBase[1]);
