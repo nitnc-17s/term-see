@@ -39,10 +39,12 @@ ol.ordered-list-type-2 {
 }
 
 header{
+    position: fixed;
     width: 100vw;
-    height: 2rem;
+    height: 1fr;
     top: 0;
     left: 0;
-    background-color: red;
+    background-color: #FFF;
     text-align: center;
+    filter: drop-shadow(0px 0px 5px rgba(0,0,0,0.6));
 }
