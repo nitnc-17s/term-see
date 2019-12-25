@@ -24,7 +24,7 @@ let HeaderText, ArticleText;
 let chapterNum = 0;
 function onScroll() {
     for(let i = 0; i < termBase.length; i++){
-        let b = termBase[i].getBoundingClientRect().top - headerBase.offsetHeight;
+        let b = termBase[i].getBoundingClientRect().top - headerBase.offsetHeight - 100;
         if(b <= 0){
             HeaderText = termBase[i].getElementsByTagName("h2")[0].innerHTML;
             chapterNum = i;
@@ -34,7 +34,7 @@ function onScroll() {
     chapterHeader.innerHTML = HeaderText;
 
     for(let i = 0; i < termBase[chapterNum].getElementsByTagName("h4").length; i++){
-        let b = termBase[chapterNum].getElementsByTagName("h4")[i].getBoundingClientRect().top - headerBase.offsetHeight;
+        let b = termBase[chapterNum].getElementsByTagName("h4")[i].getBoundingClientRect().top - headerBase.offsetHeight - 100;
         if(b <= 0)ArticleText = termBase[chapterNum].getElementsByTagName("h4")[i].innerHTML;
     }
     if(ArticleText == undefined) ArticleText = termBase[0].getElementsByTagName("h4")[0].innerHTML;
