@@ -14,17 +14,16 @@ document.addEventListener("scrollStart", event => {
     BeforeEvent = event;
 }, false);
 
-let termBase = document.getElementsByClassName("term")[0].children;
-
-let headerBase = document.getElementById("header");
-let chapterHeader = document.getElementById("chapterHeader");
-let articleHeader = document.getElementById("articleHeader");
-
-let HeaderText, ArticleText;
+const termBase = document.getElementsByClassName("term")[0].children;
+const headerBase = document.getElementById("header");
+const chapterHeader = document.getElementById("chapterHeader");
+const articleHeader = document.getElementById("articleHeader");
 let chapterNum = 0;
 function onScroll() {
+    let HeaderText, ArticleText;
+
     for(let i = 0; i < termBase.length; i++){
-        let b = termBase[i].getBoundingClientRect().top - headerBase.offsetHeight;
+        let b = termBase[i].getBoundingClientRect().top - headerBase.offsetHeight - 100;
         if(b <= 0){
             HeaderText = termBase[i].getElementsByTagName("h2")[0].innerHTML;
             chapterNum = i;
@@ -34,12 +33,15 @@ function onScroll() {
     chapterHeader.innerHTML = HeaderText;
 
     for(let i = 0; i < termBase[chapterNum].getElementsByTagName("h4").length; i++){
-        let b = termBase[chapterNum].getElementsByTagName("h4")[i].getBoundingClientRect().top - headerBase.offsetHeight;
+        let b = termBase[chapterNum].getElementsByTagName("h4")[i].getBoundingClientRect().top - headerBase.offsetHeight - 100;
         if(b <= 0)ArticleText = termBase[chapterNum].getElementsByTagName("h4")[i].innerHTML;
     }
-    if(ArticleText == undefined) ArticleText = termBase[0].getElementsByTagName("h4")[0].innerHTML;
+    if(ArticleText == undefined) ArticleText = termBase[chapterNum].getElementsByTagName("h4")[0].innerHTML;
     articleHeader.innerHTML = ArticleText;
 }
 onScroll();
 window.onscroll = onScroll;
-console.log(termBase[1]);
+
+function topScroll(){
+    scrollTo(0,0);
+}
