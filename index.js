@@ -39,6 +39,14 @@ function onScroll() {
     }
     if(articleText == undefined) articleText = termBase[chapterNum].getElementsByTagName("h4")[0].innerHTML;
     articleHeader.innerHTML = articleText;
+
+    if(!window.scrollY){
+        headerBase.classList.remove("header-shadow");
+        chapterHeader.innerHTML = "学生会規約改正案";
+        articleHeader.innerHTML = "TOP";
+    }else{
+        headerBase.classList.add("header-shadow");
+    }
 }
 onScroll();
 window.onscroll = onScroll;

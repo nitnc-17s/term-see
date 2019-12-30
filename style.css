@@ -45,6 +45,9 @@ header{
     top: 0;
     left: 0;
     background-color: #FFF;
+}
+
+.header-shadow{
     filter: drop-shadow(0px 0px 5px rgba(0,0,0,0.6));
 }
 
