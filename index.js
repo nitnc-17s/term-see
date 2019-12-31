@@ -53,4 +53,8 @@ window.onscroll = onScroll;
 
 function topScroll(){
     scrollTo(0,0);
+    if (BeforeEvent !== undefined) {
+        BeforeEvent.detail.anchor.classList.remove("link-target");
+        BeforeEvent = undefined;
+    }
 }
