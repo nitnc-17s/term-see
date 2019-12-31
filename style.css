@@ -60,6 +60,32 @@ header {
   border-radius: 3px;
 }
 
+.menu-nav {
+  position: fixed;
+  background-color: #999;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 200px;
+  -webkit-transform: translateX(-200px);
+          transform: translateX(-200px);
+  -webkit-transition: all 0.8s;
+  transition: all 0.8s;
+  z-index: 1;
+}
+
+.active {
+  -webkit-transform: none;
+          transform: none;
+}
+
+.menu-box {
+  position: absolute;
+  padding: 8px;
+  height: calc(100vh - 8px * 2);
+  width: calc(100% - 8px * 2);
+}
+
 .top {
   position: absolute;
   right: 0;

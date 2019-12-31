@@ -58,3 +58,11 @@ function topScroll(){
         BeforeEvent = undefined;
     }
 }
+
+document.getElementById("menu").onclick = function(){
+    document.getElementsByClassName("menu-nav")[0].classList.toggle("active");
+};
+
+document.getElementById("menu_nav_close").onclick = function(){
+    document.getElementsByClassName("menu-nav")[0].classList.remove("active");
+};

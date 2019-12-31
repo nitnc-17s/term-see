@@ -64,6 +64,31 @@ $margin:1px;
     border-radius: 3px;
 }
 
+.menu-nav{
+    position: fixed;
+    background-color: #999;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 200px;
+    transform: translateX(-200px);
+    transition: all 0.8s;
+    z-index: 1;
+}
+
+.active{
+    transform: none;
+}
+
+$menu-box-padding: 8px;
+
+.menu-box{
+    position: absolute;
+    padding: $menu-box-padding;
+    height: calc(100vh - #{$menu-box-padding} * 2);
+    width: calc(100% - #{$menu-box-padding} * 2);
+}
+
 .top{
     position: absolute;
     right: 0;
