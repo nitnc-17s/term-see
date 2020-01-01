@@ -62,6 +62,7 @@ $margin:1px;
     margin: $margin;
     border: solid $boder-width;
     border-radius: 3px;
+    cursor: pointer;
 }
 
 .menu-nav{
@@ -74,6 +75,10 @@ $margin:1px;
     transform: translateX(-200px);
     transition: all 0.8s;
     z-index: 1;
+}
+
+#menu_nav_close{
+    cursor: pointer;
 }
 
 .active{
@@ -97,6 +102,7 @@ $menu-box-padding: 8px;
     margin: $margin;
     border: solid $boder-width;
     border-radius: 3px;
+    cursor: pointer;
 }
 
 .center-header{
