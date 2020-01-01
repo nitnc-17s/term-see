@@ -84,6 +84,7 @@ $menu-box-padding: 8px;
 
 .menu-box{
     position: absolute;
+    overflow: scroll;
     padding: $menu-box-padding;
     height: calc(100vh - #{$menu-box-padding} * 2);
     width: calc(100% - #{$menu-box-padding} * 2);
