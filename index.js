@@ -8,6 +8,7 @@ const scroll = new SmoothScroll('a[href*="#"]', {
 
 let BeforeEvent;
 document.addEventListener("scrollStart", event => {
+    console.log(event)
     if (BeforeEvent !== undefined) {
         BeforeEvent.detail.anchor.classList.remove("link-target");
     }
@@ -61,8 +62,26 @@ function topScroll(){
 
 document.getElementById("menu").onclick = function(){
     document.getElementsByClassName("menu-nav")[0].classList.toggle("active");
+    document.getElementsByClassName("term")[0].classList.toggle("stop-scroll");
 };
 
-document.getElementById("menu_nav_close").onclick = function(){
+document.getElementById("term").onclick = function(){
     document.getElementsByClassName("menu-nav")[0].classList.remove("active");
+    document.getElementsByClassName("term")[0].classList.remove("stop-scroll");
 };
+
+const menuBox = document.getElementById("menu_box");
+let text, href;
+let article = 1;
+for(let i = 0; i < termBase.length; i++){
+    href = (i+1 == termBase.length)?"#sp":"#c"+(i+1);
+    text = '<div><a data-scroll class="menu-link" href='+href+'>'+termBase[i].getElementsByTagName("h2")[0].innerHTML+'</a></div>';
+    menuBox.insertAdjacentHTML('beforeend',text);
+
+    for(let l = 0; l < termBase[i].getElementsByTagName("h4").length; l++){
+        href = "#a"+article;
+        text = '<div><a data-scroll class="menu-link indent-1" href='+href+'>'+termBase[i].getElementsByTagName("h4")[l].innerHTML+'</a></div>';
+        menuBox.insertAdjacentHTML('beforeend',text);
+        article++;
+    }
+}

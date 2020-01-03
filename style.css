@@ -81,7 +81,6 @@ header {
 
 .menu-box {
   position: absolute;
-  overflow-x: hidden;
   overflow-y: scroll;
   padding: 8px;
   height: calc(100vh - 8px * 2);
@@ -103,5 +102,22 @@ header {
   left: 50%;
   -webkit-transform: translateX(-50%) translateY(-50%);
           transform: translateX(-50%) translateY(-50%);
+}
+
+.stop-scroll {
+  overflow: hidden;
+  z-index: -1;
+}
+
+.indent-1 {
+  margin-left: 8px;
+}
+
+.indent-2 {
+  margin-left: 16px;
+}
+
+.indent-3 {
+  margin-left: 24px;
 }
 /*# sourceMappingURL=style.css.map */

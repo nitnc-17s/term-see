@@ -84,7 +84,7 @@ $menu-box-padding: 8px;
 
 .menu-box{
     position: absolute;
-    overflow: scroll;
+    overflow-y: scroll;
     padding: $menu-box-padding;
     height: calc(100vh - #{$menu-box-padding} * 2);
     width: calc(100% - #{$menu-box-padding} * 2);
@@ -104,4 +104,14 @@ $menu-box-padding: 8px;
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
+}
+
+.stop-scroll{
+    overflow: hidden;
+}
+
+@for $i from 1 through 3 {
+    .indent-#{$i} {
+        margin-left: $i * 8px;
+    }
 }
