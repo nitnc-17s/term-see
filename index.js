@@ -62,12 +62,17 @@ function topScroll(){
 
 document.getElementById("menu").onclick = function(){
     document.getElementsByClassName("menu-nav")[0].classList.toggle("active");
-    document.getElementsByClassName("term")[0].classList.toggle("stop-scroll");
+    document.getElementsByTagName("body")[0].classList.toggle("stop-scroll");
 };
 
 document.getElementById("term").onclick = function(){
     document.getElementsByClassName("menu-nav")[0].classList.remove("active");
-    document.getElementsByClassName("term")[0].classList.remove("stop-scroll");
+    document.getElementsByTagName("body")[0].classList.remove("stop-scroll");
+};
+
+document.getElementById("title").onclick = function(){
+    document.getElementsByClassName("menu-nav")[0].classList.remove("active");
+    document.getElementsByTagName("body")[0].classList.remove("stop-scroll");
 };
 
 const menuBox = document.getElementById("menu_box");
