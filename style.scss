@@ -7,6 +7,7 @@ body {
 h1, .term{
     padding-left: 10vw;
     padding-right: 10vw;
+    width: 80vw;
 }
 
 .article h4 {
@@ -102,7 +103,7 @@ $menu-box-padding: 8px;
 .center-header{
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 50vw;
     transform: translateX(-50%) translateY(-50%);
 }
 
