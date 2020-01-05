@@ -61,32 +61,40 @@ function topScroll(){
 }
 
 document.getElementById("menu").onclick = function(){
-    document.getElementsByClassName("menu-nav")[0].classList.toggle("active");
-    document.getElementsByTagName("body")[0].classList.toggle("stop-scroll");
+    document.getElementsByClassName("menu-nav")[0].classList.add("active");
+    document.getElementsByTagName("body")[0].classList.add("stop-scroll");
 };
 
-document.getElementById("term").onclick = function(){
-    document.getElementsByClassName("menu-nav")[0].classList.remove("active");
-    document.getElementsByTagName("body")[0].classList.remove("stop-scroll");
-};
+document.getElementById("term").onclick = () => {closeMenu();};
 
-document.getElementById("title").onclick = function(){
-    document.getElementsByClassName("menu-nav")[0].classList.remove("active");
-    document.getElementsByTagName("body")[0].classList.remove("stop-scroll");
-};
+document.getElementById("title").onclick = () => {closeMenu();};
 
 const menuBox = document.getElementById("menu_box");
 let text, href;
 let article = 1;
 for(let i = 0; i < termBase.length; i++){
-    href = (i+1 == termBase.length)?"#sp":"#c"+(i+1);
-    text = '<div><a data-scroll class="menu-link" href='+href+'>'+termBase[i].getElementsByTagName("h2")[0].innerHTML+'</a></div>';
+    text = '<div data-scroll class="menu-link menu-title" onclick=acd('+i+') >'+termBase[i].getElementsByTagName("h2")[0].innerHTML+'</div>';
     menuBox.insertAdjacentHTML('beforeend',text);
-
+    menuBox.insertAdjacentHTML('beforeend','<div id="acd_box'+(i+1)+'" class="acd-content indent-1"></div>');
+    const acdBox = document.getElementById("acd_box"+(i+1));
     for(let l = 0; l < termBase[i].getElementsByTagName("h4").length; l++){
         href = "#a"+article;
-        text = '<div><a data-scroll class="menu-link indent-1" href='+href+'>'+termBase[i].getElementsByTagName("h4")[l].innerHTML+'</a></div>';
-        menuBox.insertAdjacentHTML('beforeend',text);
+        text = '<div><a data-scroll class="menu-link" href='+href+' onclick=closeMenu()>'+termBase[i].getElementsByTagName("h4")[l].innerHTML+'</a></div>';
+        acdBox.insertAdjacentHTML('beforeend',text);
         article++;
     }
+}
+
+function closeMenu() {
+    document.getElementsByClassName("menu-nav")[0].classList.remove("active");
+    document.getElementsByTagName("body")[0].classList.remove("stop-scroll");
+}
+
+let BeforeContenNumber;
+function acd(num){
+    if(BeforeContenNumber !== undefined && BeforeContenNumber !== num){
+        document.getElementsByClassName("acd-content")[BeforeContenNumber].classList.remove("acd-open-close");
+    }
+    document.getElementsByClassName("acd-content")[num].classList.toggle("acd-open-close");
+    BeforeContenNumber = num;
 }
