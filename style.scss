@@ -41,13 +41,14 @@ ol.ordered-list-type-2 {
 
 $header-height:2rem;
 
-header{
+#header{
     position: fixed;
     width: 100%;
     height: $header-height;
     top: 0;
     left: 0;
     background-color: #FFF;
+    user-select: none;
 }
 
 .header-shadow{
@@ -70,7 +71,7 @@ $margin:1px;
     background-color: #999;
     top: 0;
     left: 0;
-    height: 100%;
+    height: 100vh;
     width: 200px;
     transform: translateX(-200px);
     transition: all 0.8s;
@@ -111,8 +112,25 @@ $menu-box-padding: 8px;
     overflow: hidden;
 }
 
-@for $i from 1 through 3 {
+@for $i from 1 through 1 {
     .indent-#{$i} {
         margin-left: $i * 8px;
     }
+}
+
+.menu-link{
+    user-select: none;
+}
+
+.acd-content{
+    max-height: 0px;
+    visibility: hidden;
+    user-select: none;
+    display: none;
+}
+
+.acd-open-close{
+    max-height: 2000px;
+    visibility: visible;
+    display: inline;
 }
